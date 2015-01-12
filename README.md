@@ -4,7 +4,7 @@ The first iteration of Pitt's Design Hub website. Design Hub is about students b
 This website is open-source (license TBD). Design Hub logo created by Madhur Malhotra.
 
 ### Getting started
-- [Git](http://git-scm.com/) The SCM-client-of-choice for this project (and GitHub!). You may use the GitHub GUI ([Windows](https://windows.github.com/) / [Mac](https://mac.github.com/)) for this project.
+- [Git](http://git-scm.com/) The SCM-client-of-choice for this project (and GitHub!). You may use the GitHub GUI ([Windows](https://windows.github.com/) / [Mac](https://mac.github.com/)) for this project.  Give it a demo [here](https://try.github.io/levels/1/challenges/1).
 - [Python tutorial, Google App Engine (GAE)](https://cloud.google.com/appengine/docs/python/gettingstartedpython27/introduction)
 - [Skeleton documentation](http://getskeleton.com/)
 - [Font Awesome documentation](http://fortawesome.github.io/Font-Awesome/)
