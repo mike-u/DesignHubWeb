@@ -11,6 +11,7 @@ This website is open-source (license TBD). Design Hub logo created by Madhur Mal
 
 #### Acknowledgements
 - [Skeleton CSS framework](http://getskeleton.com/) by Dave Gamache
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/) for being (font) awesome!
 - [Google App Engine](https://cloud.google.com/appengine/) for hosting
 - the University of Pittsburgh
 
