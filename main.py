@@ -12,8 +12,15 @@ class StaticHandler(webapp2.RequestHandler):
 
 class MainHandler(StaticHandler):
     def get(self):
-        self.render_static_html('construction.html')
+        self.render_static_html('index.html')
+
+
+class ContactHandler(StaticHandler):
+    def get(self):
+        self.render_static_html('contact.html')
+
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-], debug=True)
+                                  ('/contact', ContactHandler),
+                                  ('/', MainHandler)
+                              ], debug=True)
