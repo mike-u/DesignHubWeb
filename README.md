@@ -6,7 +6,7 @@ This website is open-source (license TBD). Design Hub logo created by Madhur Mal
 ### Getting started
 Thanks for contributing! See some resources below for gettings started. No prior experience needed.
 - [Git](http://git-scm.com/) The SCM-client-of-choice for this project (and GitHub!). You may use the GitHub GUI ([Windows](https://windows.github.com/) / [Mac](https://mac.github.com/)) for this project, but command-line interfaces (CLI) are more OS agnostic.  Give it a demo [here](https://try.github.io/levels/1/challenges/1).
-  - Also consult the [GitHub Guides](https://guides.github.com/), particularly the [Forking Projects](https://guides.github.com/activities/forking/) article, as well as [Understanding the GitHub Flow](https://guides.github.com/introduction/flow/) explanation.
+  - Also consult the [GitHub Guides](https://guides.github.com/), particularly the [Understanding the GitHub Flow](https://guides.github.com/introduction/flow/) explanation.
 - [Python tutorial, Google App Engine (GAE)](https://cloud.google.com/appengine/docs/python/gettingstartedpython27/introduction)
 - [Skeleton documentation](http://getskeleton.com/)
 - [Font Awesome documentation](http://fortawesome.github.io/Font-Awesome/)
