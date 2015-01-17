@@ -14,9 +14,6 @@ handlers:
 - url: /assets/img
   static_dir: assets/img
 
-- url: /assets/webfonts
-  static_dir: assets/webfonts
-
 - url: .*
   script: main.app
 
