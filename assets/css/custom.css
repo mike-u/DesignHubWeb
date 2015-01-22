@@ -181,6 +181,12 @@
   color: #FFFFFF;
 }
 
+.background-PittSkyline {
+  background-size: cover;
+  background-image: url('../img/PittsburghSkyline.png');
+  color: #FFFFFF;
+}
+
 .background-hogwarts {
   background-size: cover;
   background-image: url('../img/hogwarts.jpg');
@@ -191,3 +197,6 @@
 --------------------------------------------*/
 
 /* TODO make a footer */
+.footer{
+	background: 10%;
+}
