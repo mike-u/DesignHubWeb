@@ -2,8 +2,6 @@ import jinja2
 import webapp2
 import os
 
-from google.appengine.ext.webapp import template
-
 
 JINJA_ENVIRON = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -13,23 +11,9 @@ JINJA_ENVIRON = jinja2.Environment(
 )
 
 
-class StaticHandler(webapp2.RequestHandler):
-    def render_static_html(self, filename, **template_args):
-        path = os.path.join(os.path.dirname(__file__), filename)
-        self.response.write(template.render(path, template_args))
-
-
-class MainHandler(StaticHandler):
+class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.render_static_html('index.html')
+        template = JINJA_ENVIRON.get_template('index.html')
+        self.response.write(template.render())
 
-
-class ContactHandler(StaticHandler):
-    def get(self):
-        self.render_static_html('contact.html')
-
-
-app = webapp2.WSGIApplication([
-                                  ('/contact', ContactHandler),
-                                  ('/', MainHandler)
-                              ], debug=True)
+app = webapp2.WSGIApplication([('/', MainHandler)], debug=True)

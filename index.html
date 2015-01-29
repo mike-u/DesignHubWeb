@@ -1,42 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-    <!-- Basic Page Needs
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta charset="utf-8">
-    <title>Pitt Design Hub</title>
-    <meta name="description" content="The University of Pittsburgh's Design Hub, a student ideation platform for generating top-notch ideas and creating cross-disciplinary interactions.">
-    <meta name="author" content="Ian McIntyre">
-
-    <!-- Mobile Specific Metas
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link type="text/css" rel="stylesheet" href="assets/css/normalize.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/skeleton.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/custom.css">
-
-    <!-- Favicon
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <!-- FONT
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/custom.js"></script>
-
-</head>
-<body>
-
-<!-- Primary Page Layout
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+{% extends "base.html" %}
 
     <!-- Header, welcome, value proposition -->
+{% block header %}
     <div class="container">
         <section class="header">
             <!--<h1>DESIGN HUB</h1>-->
@@ -50,69 +15,23 @@
             <div class="row value-props">
                 <iframe src="https://www.google.com/calendar/embed?src=appjs0omhqdrjt9o1ilvicg3f8%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
             </div>
-            <div class="row value-props u-pull-center">
-                <div class="value-prop twelve columns">
-                    <span class="fa-stack fa-lg fa-3x">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <table class="u-full-width">
-                        <thead>
-                            <tr>
-                                <th>Date & time</th>
-                                <th>Description</th>
-                                <th>Location</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Thurs, Jan 15 @ 9:00pm</td>
-                                <td>First ideation workshop!</td>
-                                <td>Benedum 320</td>
-                            </tr>
-                            <tr>
-                                <td>Week of Jan 19</td>
-                                <td>SERIES SolidWorks Workshop</td>
-                                <td>TBD</td>
-                            </tr>
-                            <tr>
-                                <td>Thurs, Feb 4 @ 9:00pm</td>
-                                <td>Tricks to Creative Thinking & Ideation</td>
-                                <td>Benedum 320</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </section>
     </div>
+{% endblock %}
 
-    <!-- Navigation Bar -->
-    <div class="navbar-spacer"></div>
-    <nav class="navbar">
-        <div class="container">
-            <ul class="navbar-list">
-                <li class="navbar-item">
-                    <a class="navbar-link" href="http://pittdesignhub.com">Home</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-link" href="#">About</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-link" href="http://pittdesignhub.com/contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <!-- Quick mission statement -->
-    <div class="docs-section negative">
+    <div class="docs-section negative" id="about">
         <div class="container">
             <div class="row">
                 <div class="nine columns">
                     <h3>Mission</h3>
                     <p>Design Hub is about students building solutions to real-world problems in and around the University of Pittsburgh. We are driven by design principles and strive for interdisciplinary collaboration and hands-on experiences. Out vision is to serve as a student ideation platform for generating top-notch ideas and creating cross-disciplinary interactions.</p>
-                    <a class="button button-primary" href="http://pittdesignhub.com/about">Learn more</a>
+                    <!--<a class="button button-primary" href="http://pittdesignhub.com/about">Learn more</a>-->
                 </div>
             </div>
         </div>
@@ -133,18 +52,6 @@
         </div>
     </div>
 
-    <div class="docs-section background-map">
-        <div class="container">
-          <div class="row u-pull-center">
-            <div class="twelve columns" style="margin-top: 10%">
-                <h1>THANKS</h1>
-                <h6><a href="https://github.com/ianpmc/designhubweb">Steal the code</a> <i class="fa fa-github"></i> Hacked together by Ian McIntyre, Zachary Barnes, Stephanie Lee, and Madhur Malhotra. <script type="text/javascript">document.write(new Date().getFullYear());</script></h6>
-            </div>
-          </div>
-        </div>
-    </div>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-</body>
-</html>
+{% endblock %}
