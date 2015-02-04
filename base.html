@@ -36,6 +36,9 @@
 </head>
 <body>
 
+{% block header %}
+{% endblock %}
+
 {% block navbar %}
     <!-- Navigation Bar -->
     <div class="navbar-spacer"></div>
@@ -54,9 +57,6 @@
     </nav>
 {% endblock %}
 
-{% block header %}
-{% endblock %}
-
 {% block content %}
 {% endblock %}
 
@@ -66,7 +66,7 @@
           <div class="row u-pull-center">
             <div class="twelve columns" style="margin-top: 10%">
                 <h1>THANKS</h1>
-                <h6><a href="https://github.com/ianpmc/designhubweb">Steal the code</a> <i class="fa fa-github"></i> Hacked together by Ian McIntyre, Zachary Barnes, Stephanie Lee, Madhur Malhotra, and Michael Urich. <script type="text/javascript">document.write(new Date().getFullYear());</script></h6>
+                <p><a href="https://github.com/ianpmc/designhubweb">Steal the code</a> <i class="fa fa-github"></i> Hacked together by Ian McIntyre, Zachary Barnes, Stephanie Lee, Madhur Malhotra, and Michael Urich. <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
             </div>
           </div>
         </div>
