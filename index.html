@@ -9,11 +9,26 @@
             <div class="row value-props">
                 <p><a class="button button-primary" href="https://docs.google.com/forms/d/1yLr0kBfO6H1TqFvo_KP694BzzrlIOLq5eTJIIF6JGLM/viewform">SUBSCRIBE</a></p>
                 <p><a class="button" href="https://docs.google.com/forms/d/1-qpb9VCij0vGABSjlMEbqqFnzMaiEc0VcALto37aSd4/viewform?embedded=true"><i class="fa fa-pencil-square-o"></i> Project Application</a></p>
-
-                <p><a class="button" href="https://www.dropbox.com/s/5pnp3x7dcgxltlu/Intro_to_Solidworks.zip?dl=0"><i class="fa fa-dropbox"></i> Solidworks</a></p>
             </div>
             <div class="row value-props">
-                <iframe src="https://www.google.com/calendar/embed?src=appjs0omhqdrjt9o1ilvicg3f8%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                <!-- Table for events -->
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in events %}
+                        <tr>
+                            <td>{{ event.name}}</td>
+                            <td>{{ event.start_time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p><a class="button" href="http://www.pittdesigmhub.com/calendar"><i class="fa fa-calendar"></i> See more events</a></p>
             </div>
         </section>
     </div>
