@@ -14,6 +14,7 @@ Thanks for contributing! See some resources below for gettings started. No prior
 #### Acknowledgements
 - [Skeleton CSS framework](http://getskeleton.com/) by Dave Gamache
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/) for being (font) awesome!
+- the [Python Google Calendar Parser](https://github.com/oblique63/Python-GoogleCalendarParser) lightly modified in ianpmc's fork
 - [Google App Engine](https://cloud.google.com/appengine/) for hosting
 - the University of Pittsburgh
 

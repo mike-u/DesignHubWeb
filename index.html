@@ -20,10 +20,35 @@
 			
 			<!--TODO Insert Design Hub slogan on left side of page, Make buttons transparent below--> 
             <div class="row value-props">
+				<div class="twelve columns">
                 <p><a class="button button-landing" href="https://docs.google.com/forms/d/1yLr0kBfO6H1TqFvo_KP694BzzrlIOLq5eTJIIF6JGLM/viewform">SUBSCRIBE</a></p>
-            </div>
+				</div>
+			</div>
 		</div>
-    </div>
+	</div>
+    <div class="docs-section">
+        <section class="container">
+            <div class="row">
+                <!-- Table for events -->
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in events %}
+                        <tr>
+                            <td>{{ event.name}}</td>
+                            <td>{{ event.start_time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+			</div>
+		</section>
+	</div>
 {% endblock %}
 
 {% block content %}
@@ -32,7 +57,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
     <!-- Quick mission statement -->
-    <div class="docs-section negative" id="about">
+    <div class="docs-section negative">
         <div class="container">
             <div class="row">
                 <div class="nine columns">

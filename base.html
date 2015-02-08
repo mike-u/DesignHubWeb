@@ -36,14 +36,17 @@
 </head>
 <body>
 
+
 {% block navbar %}
     <!-- Navigation Bar -->
-    <div class="navbar-spacer navbar-container"></div>
+    <div class="container">
+    <div class="navbar-spacer"></div>
     <nav class="navbar">
         <div class="container">
             <ul class="navbar-list">
                 <li class="navbar-icon">
-                    <a class="navbar-link" href="http://pittdesignhub.com"><img src="assets/img/DesignHub40.png"></a>
+                    <!--<a class="navbar-link" href="http://www.pittdesignhub.com">Home</a>-->
+                    <a class="navbar-link" href="http://www.pittdesignhub.com"><img src="assets/img/DesignHub40.png"></a>
                 </li>
                 <li class="navbar-item">
                     <a class="navbar-link" href="#about">About</a>
@@ -54,11 +57,14 @@
 				<li class="navbar-item">
                     <a class="navbar-link" href="#projects">Design Projects</a>
                 </li>
+                    <a class="navbar-link" href="http://www.pittdesignhub.com/calendar">Calendar</a>
                 </li>
             </ul>
         </div>
     </nav>
+    </div>
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
