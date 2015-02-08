@@ -38,7 +38,7 @@
 
 {% block navbar %}
     <!-- Navigation Bar -->
-    <div class="navbar-spacer"></div>
+    <div class="navbar-spacer navbar-container"></div>
     <nav class="navbar">
         <div class="container">
             <ul class="navbar-list">
@@ -47,6 +47,12 @@
                 </li>
                 <li class="navbar-item">
                     <a class="navbar-link" href="#about">About</a>
+                </li>
+				<li class="navbar-item">
+                    <a class="navbar-link" href="#opportunities">Opportunities</a>
+                </li>
+				<li class="navbar-item">
+                    <a class="navbar-link" href="#projects">Design Projects</a>
                 </li>
                 </li>
             </ul>
@@ -61,14 +67,20 @@
 {% endblock %}
 
 {% block footer %}
-    <div class="docs-section background-map">
+    <div class="docs-section negative">
         <div class="container">
-          <div class="row u-pull-center">
-            <div class="twelve columns" style="margin-top: 10%">
-                <h1>THANKS</h1>
-                <h6><a href="https://github.com/ianpmc/designhubweb">Steal the code</a> <i class="fa fa-github"></i> Hacked together by Ian McIntyre, Zachary Barnes, Stephanie Lee, Madhur Malhotra, and Michael Urich. <script type="text/javascript">document.write(new Date().getFullYear());</script></h6>
-            </div>
-          </div>
+			<div class="row">
+            <div class="four columns" >
+				<img src="assets/img/InvertedDesignHub.png" height="100rem">
+				<!-- TODO fix picture height and width --> 
+			</div>
+			<div class="eight columns" >
+			<!-- TODO make the text white, even though it is a link, I think the white contrasts better--> 
+			<p><i class="fa fa-envelope"></i> <a href="mailto:hi@pittdesignhub.com">hi@designdesignhub.com</a> <br>
+			<i class="fa fa-github"></i> <a href="https://github.com/ianpmc/designhubweb">Steal the code!</a> </p>
+			<!-- Hacked together by Ian McIntyre, Zachary Barnes, Stephanie Lee, Madhur Malhotra, and Michael Urich. <script type="text/javascript">document.write(new Date().getFullYear());</script></h6> -->
+			</div>					
+			</div>
         </div>
     </div>
 {% endblock %}
