@@ -46,6 +46,8 @@ class CalendarHandler(webapp2.RequestHandler):
         for event in callist:
             if event.start_time > now:
                 dispevents.append(event)
+            if event.start_time=='00:00:00':
+                event.start_time='TBA'
 
         template_values = {
             "events": dispevents
