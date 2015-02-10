@@ -1,7 +1,7 @@
 
 .header {
-  margin-top: 6rem;
-  text-align: center; }
+/*   margin-top: 6rem; */
+  text-align: center;}
 .value-prop {
   margin-top: 1rem; }
 .value-props {
@@ -13,7 +13,6 @@
   letter-spacing: .2rem;
   font-weight: 600; }
 .docs-section {
-  border-top: 1px solid #eee;
   padding: 4rem 0;
   margin-bottom: 0;}
 .value-img {
@@ -25,6 +24,11 @@
   font-size: 1.2rem;
   color: #999;
   letter-spacing: normal; }
+  
+.button-landing {
+ background: rgba(131,129,129,0.5);
+ color:#FFFFFF;}
+ /* TODO change the colors*/ 
 
 .navbar {
   display: none; }
@@ -48,6 +52,8 @@
 /* Larger than tablet */
 @media (min-width: 750px) {
   /* Navbar */
+  .navbar-container {
+    background-color: rgba(255, 255, 255, 1);}
   .navbar + .docs-section {
     border-top-width: 0; }
   .navbar,
@@ -62,7 +68,7 @@
   .navbar-spacer {
     display: none; }
   .navbar > .container {
-    width: 100%; }
+/*     width: 100%;  */}
   .navbar-list {
     list-style: none;
     margin-bottom: 0; }
@@ -191,6 +197,13 @@
   background-image: url('../img/hogwarts.jpg');
   color: #FFFFFF;
 }
+
+.background-1765 {
+  background-size: cover; 
+  background-image: url('../img/1794.png');
+  color: #FFFFFF; }
+
+
 
 /* Footer
 --------------------------------------------*/
