@@ -28,6 +28,10 @@ class MainHandler(webapp2.RequestHandler):
             if event.start_time > now:
                 dispevents.append(event)
 
+        for showing in dispevents:
+            if showing.start_time.hour is 00:
+                showing.start_time = 'TBD'
+
         template_values = {
             "events": dispevents[0:LANDING_EVENT_NUM]
         }
@@ -46,8 +50,10 @@ class CalendarHandler(webapp2.RequestHandler):
         for event in callist:
             if event.start_time > now:
                 dispevents.append(event)
-            if event.start_time=='00:00:00':
-                event.start_time='TBA'
+
+        for showing in dispevents:
+            if showing.start_time.hour is 00:
+                showing.start_time = 'TBD'
 
         template_values = {
             "events": dispevents
