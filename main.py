@@ -52,7 +52,7 @@ class CalendarHandler(webapp2.RequestHandler):
                 dispevents.append(event)
 
         for showing in dispevents:
-            if showing.start_time.hour is 00:
+            if showing.start_time.hour is '00':
                 showing.start_time = 'TBD'
 
         template_values = {
