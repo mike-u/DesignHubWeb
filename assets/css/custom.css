@@ -171,6 +171,14 @@
     border-bottom-color: #33C3F0; }
 }
 
+/* Responsive image prototype
+--------------------------------------------*/
+
+.img-responsive {
+    width: 100%;
+    border: 0;
+}
+
 
 /* Background types
 --------------------------------------------*/
