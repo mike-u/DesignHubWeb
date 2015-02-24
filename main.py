@@ -17,20 +17,35 @@ cal = GCal_Parse.CalendarParser(xml_url=XML_FEED)
 LANDING_EVENT_NUM = 4
 
 
+def reformat_dates(all_events):
+    now = datetime.datetime.now()
+    disp_events = []
+
+    formatting = '%Y-%m-%d %H:%M:%S'
+    desire = '%a %b %d, %I:%M %p'
+
+    for event in all_events:
+        if event.start_time > now:
+            disp_events.append(event)
+
+    for showing in disp_events:
+        if showing.start_time.hour is 00:
+                showing.start_time = 'TBD'
+        else:
+            tmp = datetime.datetime.strptime(
+                str(showing.start_time), formatting
+            )
+            showing.start_time = tmp.strftime(desire)
+
+    return disp_events
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         cal.parse_calendar(force_list=True)
         callist = cal.sort_by_oldest()
-        now = datetime.datetime.now()
-        dispevents = []
 
-        for event in callist:
-            if event.start_time > now:
-                dispevents.append(event)
-
-        for showing in dispevents:
-            if showing.start_time.hour is 00:
-                showing.start_time = 'TBD'
+        dispevents = reformat_dates(callist)
 
         template_values = {
             "events": dispevents[0:LANDING_EVENT_NUM]
@@ -44,16 +59,8 @@ class CalendarHandler(webapp2.RequestHandler):
     def get(self):
         cal.parse_calendar(force_list=True)
         callist = cal.sort_by_oldest()
-        now = datetime.datetime.now()
-        dispevents = []
 
-        for event in callist:
-            if event.start_time > now:
-                dispevents.append(event)
-
-        for showing in dispevents:
-            if showing.start_time.hour is 00:
-                showing.start_time = 'TBD'
+        dispevents = reformat_dates(callist)
 
         template_values = {
             "events": dispevents
