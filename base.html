@@ -30,6 +30,7 @@
     <!-- Scripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script src="assets/js/smooth-scroll.js"></script>
 
     {% block head %}{% endblock %}
 
@@ -46,19 +47,19 @@
             <ul class="navbar-list">
                 <li class="navbar-icon">
                     <!--<a class="navbar-link" href="http://www.pittdesignhub.com">Home</a>-->
-                    <a class="navbar-link" href="http://www.pittdesignhub.com"><img src="assets/img/DesignHub40.png"></a>
+                    <a data-scroll class="navbar-link" href="http://www.pittdesignhub.com"><img src="assets/img/DesignHub40.png"></a>
                 </li>
                 <li class="navbar-item">
-                    <a class="navbar-link" href="http://www.pittdesignhub.com/#about">About</a>
+                    <a data-scroll class="navbar-link" href="http://www.pittdesignhub.com/#about">About</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="navbar-link" href="http://www.pittdesignhub.com/#projects">Projects</a>
+                    <a data-scroll class="navbar-link" href="http://www.pittdesignhub.com/#projects">Projects</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="navbar-link" href="http://www.pittdesignhub.com/#opportunities">Opportunities</a>
+                    <a data-scroll class="navbar-link" href="http://www.pittdesignhub.com/#opportunities">Opportunities</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="navbar-link" href="http://www.pittdesignhub.com/calendar">Calendar</a>
+                    <a data-scroll class="navbar-link" href="http://www.pittdesignhub.com/calendar">Calendar</a>
                 </li>
             </ul>
         </div>
@@ -94,4 +95,7 @@
 
 
 </body>
+<script>
+    smoothScroll.init();
+</script>
 </html>
