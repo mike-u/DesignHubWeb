@@ -1,5 +1,5 @@
 # Design Hub Website
-The first iteration of Pitt's Design Hub website. Design Hub is about students building solutions to real-world problems in and around the University of Pittsburgh. We are driven by design principles and strive for interdisciplinary collaboration and hands-on experiences. Get in touch at hi@pittdesignhub.com.
+The first iteration of [Pitt's Design Hub website](http://www.pittdesignhub.com). Design Hub is about students building solutions to real-world problems in and around the University of Pittsburgh. We are driven by design principles and strive for interdisciplinary collaboration and hands-on experiences. Get in touch at hi@pittdesignhub.com.
 
 This website is open-source (license TBD). Design Hub logo created by Madhur Malhotra.
 
