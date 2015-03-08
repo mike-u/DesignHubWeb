@@ -137,11 +137,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 3rem;
   font-weight: 500;}
-h1 { font-size: 6rem; line-height: 1.2;  letter-spacing: -.1rem; text-transform: uppercase;}
-h2 { font-size: 5rem; line-height: 1.25; letter-spacing: -.1rem; }
-h3 { font-size: 4rem; line-height: 1.3;  letter-spacing: -.1rem; }
-h4 { font-size: 3rem; line-height: 1.35; letter-spacing: -.08rem; }
-h5 { font-size: 2rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h1 { font-size: 7rem; line-height: 1.2;  letter-spacing: -.1rem; text-transform: uppercase;}
+h2 { font-size: 6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 5rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 3rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 2rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
@@ -326,8 +326,7 @@ pre > code {
 th,
 td {
   padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #E1E1E1; }
+  text-align: left; }
 th:first-child,
 td:first-child {
   padding-left: 0; }

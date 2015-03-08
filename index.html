@@ -1,55 +1,55 @@
 {% extends "base.html" %}
 
-    <!-- Header, welcome, value proposition -->
+<!-- Header, welcome, value proposition -->
 {% block header %}
-    <div class="docs-section background-1765" >
-		<div class="container">
+<div class="docs-section background-1765" >
+    <div class="container">
 
-			<div class="row">
-				<div class="twelve columns">
-				<h1 style="color:#000000"> design, you can </h1>
-				</div> 
-			</div>
-			
-			<div class="row">
-				<div class="three columns"><h1></h1></div>
-				<div class="seven columns">
-				<h1 style="color:#000000"> ~ Yoda </h1>
-				</div> 
-			</div>
-			<!--TODO Insert Design Hub slogan on left side of page, Make buttons transparent below--> 
-            <div class="row value-props">
-				<div class="twelve columns">
+        <div class="row">
+            <div class="twelve columns">
+                <h1 style="color:#000000"> design, you can </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="three columns"><h1></h1></div>
+            <div class="seven columns">
+                <h1 style="color:#000000"> ~ Yoda </h1>
+            </div>
+        </div>
+        <!--TODO Insert Design Hub slogan on left side of page, Make buttons transparent below-->
+        <div class="row value-props">
+            <div class="twelve columns">
                 <p><a class="button button-landing" href="https://docs.google.com/forms/d/1yLr0kBfO6H1TqFvo_KP694BzzrlIOLq5eTJIIF6JGLM/viewform">SUBSCRIBE</a></p>
                 <p><a class="button button-landing" href="https://www.dropbox.com/s/b75y9r6l6bh8jss/ProjectBoardApplication2015.doc?dl=0" target="_blank">FUND YOUR IDEAS</a></p>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-    <div class="docs-section" id="calendar">
-        <section class="container">
-            <div class="row">
-                <!-- Table for events -->
-                <table class="u-full-width">
-                    <thead>
-                        <tr>
-                            <th>Event</th>
-                            <th>Date & Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for event in events %}
-                        <tr>
-                            <td>{{ event.name}}</td>
-                            <td>{{ event.start_time }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-			</div>
-		</section>
-	</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="docs-section" id="calendar">
+    <section class="container">
+        <div class="row">
+            <!-- Table for events -->
+            <table class="u-full-width">
+                <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Date & Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.name}}</td>
+                    <td>{{ event.start_time }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -57,252 +57,153 @@
 <!-- Primary Page Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <!-- Quick mission statement -->
-    <div class="docs-section negative" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="nine columns">
-                    <h3>Mission  <i class="fa fa-rocket"></i></h3>
-                    <p>Design Hub is a meeting place for creative thinkers and an incubator for student inventors. We provide the resources, connections, and skills to help students design a better future. We accomplish this through ideation sessions, educational workshops, hands-on design projects and community outreach.</p>
-                    <!--<a class="button button-primary" href="http://pittdesignhub.com/about">Learn more</a>-->
-                </div>
+<!-- Quick mission statement -->
+<div class="docs-section negative" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="nine columns">
+                <h2>Mission  <i class="fa fa-rocket"></i></h2>
+                <p>Design Hub is a meeting place for creative thinkers and an incubator for student inventors. We provide the resources, connections, and skills to help students design a better future. We accomplish this through ideation sessions, educational workshops, hands-on design projects and community outreach.</p>
             </div>
         </div>
     </div>
-	
-	<!-- Projects -->
-    <div class="docs-section" id="projects">
-        <div class="container u-pull-center">
-		<h3> Design Projects </h3>
-            <div class="row">
-                <div class="six columns">
-                    <h4> Deep Brain Stimulation </h4>
-					<img class="img-responsive" src="assets/img/Deep_Brain_Stimulation_Team.jpg">
-					<p> Students develop novel platform for administering cutting-edge deep brain stimulation for the treatment of neurological disease. </p>
-                </div>
-				
-				<div class="six columns">
-                    <h4> M-OCT </h4> 
-					<img class="img-responsive" src="assets/img/MOCT_Team_Plus3.jpg">
-					<p> Students developed novel surgical mount for Optical Coherence Tomography handheld scope which is used at Children's Hospital of Pittsburgh. </p>
-                </div>
+</div>
+
+<!-- Projects -->
+<div class="docs-section" id="projects">
+    <div class="container u-pull-center">
+        <h2> Design Projects </h2>
+        <div class="row">
+            <div class="six columns">
+                <h3> Deep Brain Stimulation </h3>
+                <img class="img-responsive" src="assets/img/Deep_Brain_Stimulation_Team.jpg">
+                <p> Students develop novel platform for administering cutting-edge deep brain stimulation for the treatment of neurological disease. </p>
             </div>
-			
-			<p><a class="button button-primary" href="https://docs.google.com/forms/d/1-qpb9VCij0vGABSjlMEbqqFnzMaiEc0VcALto37aSd4/viewform?embedded=true"><i class="fa fa-pencil-square-o"></i> Join a Project</a></p>
+
+            <div class="six columns">
+                <h3> M-OCT </h3>
+                <img class="img-responsive" src="assets/img/MOCT_Team_Plus3.jpg">
+                <p> Students developed novel surgical mount for Optical Coherence Tomography handheld scope which is used at Children's Hospital of Pittsburgh. </p>
+            </div>
+        </div>
+
+        <p><a class="button button-primary" href="https://docs.google.com/forms/d/1-qpb9VCij0vGABSjlMEbqqFnzMaiEc0VcALto37aSd4/viewform?embedded=true"><i class="fa fa-pencil-square-o"></i> Join a Project</a></p>
+    </div>
+</div>
+
+<!-- Opportunities -->
+<div class="docs-section negative" id="opportunities">
+    <div class="container">
+        <div class="row">
+            <div class="six columns">
+                <!-- Community Outreach -->
+                <h3><i class="fa fa-users"></i> Community Outreach</h3>
+
+
+                <h4>CMU TechNights</h4>
+                <ul>
+                    <li>Volunteer to teach middle school girls about STEM fields</li>
+                    <li>Gates Building, CMU </li>
+                    <li>Monday Nights @ 7:30 PM</li>
+                    <li><a href="http://women.cs.cmu.edu/technights/">Learn more</a> </li>
+                </ul>
+
+
+                <h4>Global Links</h4>
+                <ul>
+                    <li>Refurbish medical equipment to send to developing countries </li>
+                    <li><a href="http://www.globallinks.org">Learn more</a></li>
+                </ul>
+
+            </div>
+
+            <div class="six columns">
+
+                <!-- Competitions -->
+                <h3><i class="fa fa-trophy"></i> Competitions</h3>
+
+                <!--Big Idea -->
+
+
+
+                <h4>Big Idea Competition</h4>
+                <ul>
+                    <li>Win up to $25,000 for your BIG idea</li>
+                    <li>University of Pittsburgh</li>
+                    <li><a href="http://www.innovation.pitt.edu/randall-family-big-idea-competition-2015">Learn more</a> </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Resources-->
+<div class="docs-section" id="resources">
+    <div class="container">
+        <div class="row">
+            <div class="six columns">
+                <!-- Community Outreach -->
+                <h3><i class="fa fa-cogs"></i> Make</h3>
+
+
+                <h4>Arduino</h4>
+                <ul>
+                    <li><a href="http://arduino.cc/en/Main/Software">Download the Arduino IDE</a></li>
+                </ul>
+
+
+                <h4>SolidWorks</h4>
+                <ul>
+                    <li><a href="http://www.thingiverse.com/">Download free, open-source 3D models</a></li>
+                </ul>
+
+                <h4>Android</h4>
+                <ul>
+                    <li><a href="http://developer.android.com/sdk/index.html">Download Android Studio</a></li>
+                    <li><a href="https://www.mysliderule.com/learning-paths/android/learn/?">Resources for making your first app</a></li>
+                </ul>
+
+            </div>
+
+            <div class="six columns">
+
+                <!-- Competitions -->
+                <h3><i class="fa fa-sitemap"></i> Project Management</h3>
+
+                <!--Big Idea -->
+                <h4>Organizational Tools</h4>
+                <ul>
+                    <li><a href="https://www.dropbox.com/s/9hsyy9lu21a7wm4/ESMD%20-%20Project%20Management_2014-2015.pptx?dl=0">Fantastic project management tools</a></li>
+                    <li><a href="https://groupme.com/">GroupMe - keep in touch with your team</a></li>
+                </ul>
+
+                <h4>Intellectual Property</h4>
+                <ul>
+                    <li><a href="http://pitt.edu/~esmd/docs/Remes_102013.pdf">IP presentation by Office of Technology Management</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-
-	<!-- Opportunities -->
-    <div class="docs-section negative" id="opportunities">
-        <div class="container u-pull-center">
-			<h3>Opportunities</h3>
-					
-					<!-- Community Outreach -->
-					<h4><i class="fa fa-users"></i><br>Community Outreach</a></h4>
-
-						<!-- CMU Tech Nights-->
-						<div class="row">
-						<div class="four columns"> <h4 vertical-align="center"> CMU TechNights</h4> </div> 
-						
-						<div class="one columns"> 
-						<i class="fa fa-users"></i> <br> 
-						<i class="fa fa-map-marker"></i> <br> 
-						<i class="fa fa-calendar"></i> <br> 
-						<i class="fa fa-info"> </i> </div> 
-						
-						<div class="seven columns">
-						<p align="left">
-						volunteer to teach middle school girls about STEM fields <br> 
-						Gates Building, CMU <br> 
-						Monday Nights @ 7:30 PM <br>
-						<a href="http://women.cs.cmu.edu/technights/"> Learn More! </a> </p>
-						</div>
-						</div>
-						
-						<!--Global Links--> 
-						
-						<div class="row">
-						<div class="four columns"> <h4 vertical-align="center"> Global Links </h4> </div> 
-						
-						<div class="one columns"> 
-						<i class="fa fa-users"></i> <br> 
-						<i class="fa fa-map-marker"></i> <br> 
-						<i class="fa fa-calendar"></i> <br> 
-						<i class="fa fa-info"> </i> </div> 
-						
-						<div class="seven columns">
-						<p align="left">
-						refurbish medical equipment to send to developing countries <br> 
-						TBD <br> 
-						Saturdays...? <br>
-						<a href="http://www.globallinks.org"> Learn More! </a> </p>
-						</div>
-						</div>
-						
-					<hr>
-					
-					<!-- Competitions -->
-					<h4><i class="fa fa-trophy"></i><br>Competitions</a></h4>
-
-						<!--Big Idea --> 
-						
-						<div class="row">
-						<div class="four columns"> <h4 vertical-align="center"> Big Idea Competition </h4> </div> 
-						
-						<div class="one columns"> 
-						<i class="fa fa-trophy"></i> <br> 
-						<i class="fa fa-map-marker"></i> <br> 
-						<i class="fa fa-calendar"></i> <br> 
-						<i class="fa fa-info"> </i> </div> 
-						
-						<div class="seven columns">
-						<p align="left">
-						Win up to $50,000 for your BIG idea <br> 
-						University of Pittsburgh <br> 
-						Deadline: Feb 15<br>
-						<a href="http://www.innovation.pitt.edu/randall-family-big-idea-competition-2015"> Learn More! </a> </p>
-						</div>
-						</div>
-					
-						
-						<!--Mylan Hackathon--> 
-						
-						<div class="row">
-						<div class="four columns"> <h4 vertical-align="center"> Mylan Hackathon</h4> </div> 
-						
-						<div class="one columns"> 
-						<i class="fa fa-trophy"></i> <br> 
-						<i class="fa fa-map-marker"></i> <br> 
-						<i class="fa fa-calendar"></i> <br> 
-						<i class="fa fa-info"> </i> </div> 
-						
-						<div class="seven columns">
-						<p align="left">
-						HACKING is fun! <br> 
-						1000 Mylan Blvd. Canonsburg, PA <br> 
-						Feb 28 - March 1<br>
-						<a href="http://mylanapps.com/hacksummit/"> Learn More! </a> </p>
-						</div>
-						</div>
-					
-						
-        </div>
-    </div>
-	
-	<!--Resources-->
-		<div class="docs-section" id="resources">
-			<div class="container u-pull-center">
-				<h3>Resources</h3>
-
-					<!--Design resources-->
-					<h4><i class="fa fa-cogs"></i><br>Make</a></h4>
-						<!--Arduino-->
-						<div class="row">
-							<div class="four columns"><h4 vertical-align="center">Arduino</h4></div>
-
-							<div class="one columns">
-								<i class="fa fa-code"></i> <br><br>
-								<i class="fa fa-folder-open-o"></i> <br><br>
-							</div>
-
-							<div class="seven columns">
-								<p align="left">
-									<a href="http://arduino.cc/en/Main/Software">Download the Arduino IDE</a><br><br>
-									<a href="https://www.dropbox.com/sh/nzz2klvhrqt2cta/i6S7yYXsno">Arduino Breathalyzer Workshop</a><br><br>
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="four columns"><h4 vertical-align="center">SolidWorks</h4></div>
-
-							<div class="one columns">
-								<i class="fa fa-folder-open-o"></i> <br><br>
-								<i class="fa fa-folder-open-o"></i> <br><br>
-								<i class="fa fa-cubes"></i> <br><br>
-							</div>
-
-							<div class="seven columns">
-								<p align="left">
-									<a href="">A wonderful tutorial for beginners to get started with SolidWorks!</a><br><br>
-									<a href="https://www.dropbox.com/sh/xyj5e9wdzmh0cxz/XfR6HYP2oL">Create a prosthetics using SolidWorks!</a><br><br>
-									<a href="http://www.thingiverse.com/">Download free, open-source 3D models</a>
-								</p>
-							</div>
-						</div>
-
-					<div class="row">
-						<div class="four columns"><h4 vertical-align="center">Android</h4></div>
-
-						<div class="one columns">
-							<i class="fa fa-android"></i> <br><br>
-							<i class="fa fa-code"></i> <br><br>
-							<i class="fa fa-file-code-o"></i> <br><br>
-						</div>
-
-						<div class="seven columns">
-							<p align="left">
-								<a href="http://developer.android.com/sdk/index.html">Download Android Studio</a><br><br>
-								<a href="https://www.dropbox.com/sh/bwxt09enzleedno/KM9vD6LVsd">Interface Arduino with Android to control a DC motor</a><br><br>
-								<a href="https://www.mysliderule.com/learning-paths/android/learn/?">Resources for making your first app</a><br><br>
-							</p>
-						</div>
-					</div>
-
-					<hr>
-
-					<h4><i class="fa fa-users"></i><br>Project Management</a></h4>
-						<div class="row">
-							<div class="four columns"> <h4 vertical-align="center">Organizational Tools
-							</div>
-
-							<div class="one columns">
-								<i class="fa fa-tasks"></i> <br><br>
-								<i class="fa fa-comments"></i> <br><br>
-							</div>
-
-							<div class="seven columns">
-								<p align="left">
-									<a href="https://www.dropbox.com/s/9hsyy9lu21a7wm4/ESMD%20-%20Project%20Management_2014-2015.pptx?dl=0">Fantastic project management tools</a><br><br>
-									<a href="https://groupme.com/">GroupMe - keep in touch with your team</a><br><br>
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="four columns"> <h4 vertical-align="center">Intellectual Property
-							</div>
-
-							<div class="one columns">
-								<i class="fa fa-copyright"></i><br><br>
-							</div>
-
-							<div class="seven columns">
-								<p align="left">
-									<a href="http://pitt.edu/~esmd/docs/Remes_102013.pdf">IP presentation by Office of Technology Management</a><br><br>
-								</p>
-							</div>
-						</div>
-			</div>
-		</div>
+</div>
 
 
 
-	
-	<!-- Under construction banner -->
-    <div class="docs-section">
-        <div class="container u-pull-center">
-            <div class="row value-props">
-                <div class="value-prop four columns offset-by-four">
+
+<!-- Under construction banner -->
+<div class="docs-section">
+    <div class="container u-pull-center">
+        <div class="row value-props">
+            <div class="value-prop four columns offset-by-four">
                     <span class="fa-stack fa-lg fa-3x">
                         <i class="fa fa-circle fa-stack-2x"></i>
                         <i class="fa fa-cog fa-stack-1x fa-inverse fa-spin"></i>
                     </span>
-                    <p>This webpage is under active development. Things might be broken. Please check back soon! We've got the gears turning...</p>
-                </div>
+                <p>This webpage is under active development. Things might be broken. Please check back soon! We've got the gears turning...</p>
             </div>
         </div>
     </div>
+</div>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
