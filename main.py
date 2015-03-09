@@ -3,6 +3,9 @@ import webapp2
 import os
 import datetime
 import gcal_parse as GCal_Parse
+import logging
+
+from google.appengine.ext import ndb
 
 JINJA_ENVIRON = jinja2.Environment(
     loader=jinja2.FileSystemLoader(
@@ -15,6 +18,12 @@ JINJA_ENVIRON = jinja2.Environment(
 XML_FEED = "https://www.google.com/calendar/feeds/appjs0omhqdrjt9o1ilvicg3f8%40group.calendar.google.com/public/basic"
 cal = GCal_Parse.CalendarParser(xml_url=XML_FEED)
 LANDING_EVENT_NUM = 4
+
+SLACK_DB = 'slack_db'
+
+
+def slack_db_key(name=SLACK_DB):
+    return ndb.Key('Slack', name)
 
 
 def reformat_dates(all_events):
@@ -40,15 +49,46 @@ def reformat_dates(all_events):
     return disp_events
 
 
+class SlackDB(ndb.Model):
+    user = ndb.StringProperty()
+    text = ndb.StringProperty()
+    date = ndb.DateTimeProperty(auto_now_add=True)
+
+
+class SlackHandler(webapp2.RequestHandler):
+    def post(self):
+        logging.debug(self.request.get('token'))
+        logging.debug(self.request.get('text'))
+
+        slacks = SlackDB(parent=slack_db_key(SLACK_DB))
+
+        slacks.text = self.request.get('text')
+        slacks.user = self.request.get('user_name')
+
+        self.response.write("Message received from "
+                            + self.request.get('user_name') + ": "
+                            + self.request.get('text'))
+
+        slacks.put()
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
+        slack_query = SlackDB.query(
+            ancestor=slack_db_key(SLACK_DB)
+        ).order(-SlackDB.date)
+
+        slacks = slack_query.fetch(1)
+
         cal.parse_calendar(force_list=True)
         callist = cal.sort_by_oldest()
 
         dispevents = reformat_dates(callist)
 
         template_values = {
-            "events": dispevents[0:LANDING_EVENT_NUM]
+            "events": dispevents[0:LANDING_EVENT_NUM],
+            "slack": slacks[0]
         }
 
         template = JINJA_ENVIRON.get_template('index.html')
@@ -71,5 +111,6 @@ class CalendarHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
                                   ('/', MainHandler),
+                                  ('/slackpost', SlackHandler),
                                   ('/calendar', CalendarHandler)
                               ], debug=True)
