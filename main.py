@@ -82,14 +82,27 @@ class MainHandler(webapp2.RequestHandler):
         slacks = slack_query.fetch(1)
 
         cal.parse_calendar(force_list=True)
-        callist = cal.sort_by_oldest()
+        call_list = cal.sort_by_oldest()
 
-        dispevents = reformat_dates(callist)
+        try:
+            dispevents = reformat_dates(call_list)
+            template_values = {
+                "events": dispevents[0:LANDING_EVENT_NUM],
+                "slack": slacks[0]
+            }
+        except IndexError:
+            # Don't ever do this in real life...
+            dispevents = reformat_dates(call_list)
+            slacks = SlackDB(parent=slack_db_key(SLACK_DB))
 
-        template_values = {
-            "events": dispevents[0:LANDING_EVENT_NUM],
-            "slack": slacks[0]
-        }
+            slacks.text = 'something broke'
+            slacks.user = 'Oh snap'
+
+            slacks.put()
+            template_values = {
+                "events": dispevents[0:LANDING_EVENT_NUM],
+                "slack": slacks[0]
+            }
 
         template = JINJA_ENVIRON.get_template('index.html')
         self.response.write(template.render(template_values))

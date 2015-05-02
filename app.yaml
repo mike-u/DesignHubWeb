@@ -4,6 +4,9 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+inbound_services:
+- channel_presence
+
 handlers:
 - url: /assets/js
   static_dir: assets/js
@@ -13,6 +16,21 @@ handlers:
 
 - url: /assets/img
   static_dir: assets/img
+
+- url: /sendmessage
+  script: chat.app
+
+- url: /slackchat
+  script: chat.app
+
+- url: /_ah/channel/connected/
+  script: chat.app
+
+- url: /_ah/channel/disconnected/
+  script: chat.app
+
+- url: /chat
+  script: chat.app
 
 - url: .*
   script: main.app
