@@ -73,12 +73,14 @@ def send_to_client(user, message, sender):
         return token
 
 
-def announce_to_slack(visitor, status='connected'):
+def announce_to_slack(user, status='connected', message=None, sender=None):
     secret = import_secrets()
     if status == 'connected':
-        message = visitor + ' has joined the chat'
-    else:
-        message = visitor + ' has disconnected'
+        message = user + ' has joined the chat'
+    elif status == 'disconnected':
+        message = user + ' has disconnected'
+    elif status == 'echo' and message and sender:
+        message = sender + ' replied to ' + user + ': ' + message
 
     payload = {"text": message,
                "username": "MC"}
@@ -114,6 +116,7 @@ class SlackHandler(webapp2.RequestHandler):
         to_user, message = payload.split(' ', 1)
         result = send_to_client(to_user, message, responder)
         self.response.write(result)
+        announce_to_slack(to_user, status='echo', message=message, sender=responder)
 
 
 class ConnectionHandler(webapp2.RequestHandler):
