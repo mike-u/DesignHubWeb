@@ -10,6 +10,7 @@ import os
 import string
 from random import SystemRandom as rand
 from google.appengine.ext import ndb
+import names
 
 HEADERS = {'Content-Type': 'application/x-www-form-urlencoded'}
 ERRORS = 'Error: user not online'
@@ -123,7 +124,7 @@ class SlackHandler(webapp2.RequestHandler):
 class ConnectionHandler(webapp2.RequestHandler):
     def post(self):
         token = self.request.get('from')
-        user = "user" + keygen(size=5)
+        user = names.get_first_name()
         db = User(id=token)
         db.user = user
         db.token = token
