@@ -116,7 +116,8 @@ class SlackHandler(webapp2.RequestHandler):
         to_user, message = payload.split(' ', 1)
         result = send_to_client(to_user, message, responder)
         self.response.write(result)
-        announce_to_slack(to_user, status='echo', message=message, sender=responder)
+        if result != ERRORS:
+            announce_to_slack(to_user, status='echo', message=message, sender=responder)
 
 
 class ConnectionHandler(webapp2.RequestHandler):
