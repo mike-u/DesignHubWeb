@@ -38,14 +38,14 @@
 </div>
 
 <script type="text/javascript">
-    var token = '{{ token | safe}}'
-    var user
+    var token = '{{ token | safe}}';
+    var user;
 
     document.getElementById('toggle').style.visibility = "hidden";
 
     showToggle = function() {
        document.getElementById('toggle').style.visibility = "visible";
-    }
+    };
 
     sendMessage = function() {
         var xhr = new XMLHttpRequest();
@@ -56,15 +56,15 @@
         xhr.send();
         showToggle();
         document.getElementById('message').value = '';
-    }
+    };
 
     onOpened = function() {
         // Performed by channel callbacks
-    }
+    };
 
     onClosed = function() {
         // Performed by channel callbacks
-    }
+    };
 
     onMessage = function(m) {
         var payload = JSON.parse(m.data);
@@ -76,7 +76,7 @@
             document.getElementById('reply').innerHTML = payload.from + ': ' + payload.response;
             showToggle();
         }
-    }
+    };
 
     channel = new goog.appengine.Channel(token);
     socket = channel.open();
