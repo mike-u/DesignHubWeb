@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script type="text/javascript" src="/_ah/channel/jsapi"></script>
+{% endblock %}
+
+{% block header %}
+<div class="docs-section">
+    <div class="container u-pull-center">
+        <div class="eight columns offset-by-two">
+            <h1>Slack Chat <i class="fa fa-slack fa-1x"></i> </h1>
+            <p>Allows anyone to send the DesignHub officers an anonymous message.
+                The message is posted on the officer private Slack channel. Give us some feedback, let us know how we're
+                doing, say "hey." And if we're online, we might answer.
+                Built with <i class="fa fa-heart"></i> by Ian</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="six columns">
+            <form>
+                <label for="message">Message</label>
+                <textarea class="u-full-width"
+                          placeholder="Hey officers, here's what I think..."
+                          id="message" name="message"></textarea>
+            </form>
+            <button class="button button-primary" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="six columns" id="toggle">
+            <h4><i class="fa fa-comment"></i></h4>
+            <p id="reply">Message received. Let's see if someone answers back...</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var token = '{{ token | safe}}';
+    var user;
+
+    document.getElementById('toggle').style.visibility = "hidden";
+
+    showToggle = function() {
+       document.getElementById('toggle').style.visibility = "visible";
+    };
+
+    sendMessage = function() {
+        var xhr = new XMLHttpRequest();
+        var path = "/sendmessage";
+        var message = document.getElementById('message').value;
+        path += "?message=" + message + '&user=' + user;
+        xhr.open("Post", path, true);
+        xhr.send();
+        showToggle();
+        document.getElementById('message').value = '';
+    };
+
+    onOpened = function() {
+        // Performed by channel callbacks
+    };
+
+    onClosed = function() {
+        // Performed by channel callbacks
+    };
+
+    onMessage = function(m) {
+        var payload = JSON.parse(m.data);
+        if (payload.user) {
+            user = payload.user;
+            console.log(user);
+        }
+        else if (payload.response){
+            document.getElementById('reply').innerHTML = payload.from + ': ' + payload.response;
+            showToggle();
+        }
+    };
+
+    channel = new goog.appengine.Channel(token);
+    socket = channel.open();
+    socket.onopen = onOpened;
+    socket.onmessage = onMessage;
+    socket.onerror = function() {};
+    socket.onclose = onClosed;
+
+
+</script>
+{% endblock %}

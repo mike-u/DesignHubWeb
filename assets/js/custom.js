@@ -16,14 +16,14 @@ $(document).ready(function() {
         '"': '&quot;',
         "'": '&#39;',
         "/": '&#x2F;'
-      }
+      };
 
   function init() {
-    $window.on('scroll', onScroll)
-    $window.on('resize', resize)
-    $popoverLink.on('click', openPopover)
-    $document.on('click', closePopover)
-    $('a[href^="#"]').on('click', smoothScroll)
+    $window.on('scroll', onScroll);
+    $window.on('resize', resize);
+    $popoverLink.on('click', openPopover);
+    $document.on('click', closePopover);
+    $('a[href^="#"]').on('click', smoothScroll);
     buildSnippets();
   }
 
@@ -42,10 +42,10 @@ $(document).ready(function() {
   }
 
   function openPopover(e) {
-    e.preventDefault()
+    e.preventDefault();
     closePopover();
     var popover = $($(this).data('popover'));
-    popover.toggleClass('open')
+    popover.toggleClass('open');
     e.stopImmediatePropagation();
   }
 
@@ -62,8 +62,8 @@ $(document).ready(function() {
 });
 
   function resize() {
-    $body.removeClass('has-docked-nav')
-    navOffsetTop = $nav.offset().top
+    $body.removeClass('has-docked-nav');
+    navOffsetTop = $nav.offset().top;
     onScroll()
   }
 
@@ -84,7 +84,7 @@ $(document).ready(function() {
 
   function buildSnippets() {
     $codeSnippets.each(function() {
-      var newContent = escapeHtml($(this).html())
+      var newContent = escapeHtml($(this).html());
       $(this).html(newContent)
     })
   }
