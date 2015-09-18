@@ -18,7 +18,7 @@ handlers:
   static_dir: assets/img
 
 #Ritesh's site
-- url: finalMyringotomy.html
+- url: /finalMyringotomy.html
   static_files: finalMyringotomy.html
   upload: finalMyringotomy.html
 
