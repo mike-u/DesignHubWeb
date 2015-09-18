@@ -17,6 +17,11 @@ handlers:
 - url: /assets/img
   static_dir: assets/img
 
+#Ritesh's site
+- url: finalMyringotomy.html
+  static_files: finalMyringotomy.html
+  upload: finalMyringotomy.html
+
 - url: /sendmessage
   script: chat.app
 
