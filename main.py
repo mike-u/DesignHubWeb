@@ -11,7 +11,7 @@ import jinja2
 import webapp2
 import os
 import datetime
-import gcal_parse as GCal_Parse
+#import gcal_parse as GCal_Parse
 import logging
 from google.appengine.ext import ndb
 
@@ -24,9 +24,9 @@ JINJA_ENVIRON = jinja2.Environment(
 )
 
 # For parsing the DESIGNhub Google Calendar
-XML_FEED = "https://www.google.com/calendar/feeds/appjs0omhqdrjt9o1ilvicg3f8%40group.calendar.google.com/public/basic"
-cal = GCal_Parse.CalendarParser(xml_url=XML_FEED)
-LANDING_EVENT_NUM = 4
+#XML_FEED = "https://www.google.com/calendar/feeds/appjs0omhqdrjt9o1ilvicg3f8%40group.calendar.google.com/public/basic"
+#cal = GCal_Parse.CalendarParser(xml_url=XML_FEED)
+#LANDING_EVENT_NUM = 4
 
 # The ancestor database name from which all child database entries follow
 SLACK_DB = 'slack_db'
@@ -40,7 +40,7 @@ def slack_db_key(name=SLACK_DB):
     """
     return ndb.Key('Slack', name)
 
-
+'''
 def reformat_dates(all_events):
     """
     Modify the dates from the Google Calendar parser to something more readable by a human. Changes the formatting
@@ -51,9 +51,6 @@ def reformat_dates(all_events):
     """
     now = datetime.datetime.now()
     disp_events = []
-
-    formatting = '%Y-%m-%d %H:%M:%S'
-    desire = '%a %b %d, %I:%M %p'
 
     for event in all_events:
         if event.start_time > now:
@@ -69,14 +66,14 @@ def reformat_dates(all_events):
             showing.start_time = tmp.strftime(desire)
 
     return disp_events
-
+'''
 
 class SlackDB(ndb.Model):
-    """
+    '''
     A model for a Slack message database. Entities stored in the SlackDB database are posted on the home page with the
     most recent message first. The poster of the user is stored in user; the message for display in text. The date is
     automatically added for each entity and are indexed as such.
-    """
+    '''
     user = ndb.StringProperty()
     text = ndb.StringProperty()
     date = ndb.DateTimeProperty(auto_now_add=True)
@@ -116,18 +113,15 @@ class MainHandler(webapp2.RequestHandler):
 
         slacks = slack_query.fetch(1)
 
-        cal.parse_calendar(force_list=True)
-        call_list = cal.sort_by_oldest()
-
         try:
-            dispevents = reformat_dates(call_list)
+            #dispevents = reformat_dates(call_list)
             template_values = {
-                "events": dispevents[0:LANDING_EVENT_NUM],
+                #"events": dispevents[0:LANDING_EVENT_NUM],
                 "slack": slacks[0]
             }
         except IndexError:
             # Don't ever do this in real life...
-            dispevents = reformat_dates(call_list)
+            #dispevents = reformat_dates(call_list)
             slacks = SlackDB(parent=slack_db_key(SLACK_DB))
 
             slacks.text = 'something broke'
@@ -135,7 +129,7 @@ class MainHandler(webapp2.RequestHandler):
 
             slacks.put()
             template_values = {
-                "events": dispevents[0:LANDING_EVENT_NUM],
+                #"events": dispevents[0:LANDING_EVENT_NUM],
                 "slack": slacks[0]
             }
 
@@ -143,26 +137,8 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 
-class CalendarHandler(webapp2.RequestHandler):
-    """
-    Manage the display of the dedicated calendar webpage. Parses the DHub Google Calendar to display all the events that
-    are on the calendar. Writes them as template_values for parsing with JINJA2 template engine.
-    """
-    def get(self):
-        cal.parse_calendar(force_list=True)
-        callist = cal.sort_by_oldest()
-
-        dispevents = reformat_dates(callist)
-
-        template_values = {
-            "events": dispevents
-        }
-
-        template = JINJA_ENVIRON.get_template('calendar.html')
-        self.response.write(template.render(template_values))
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/slackpost', SlackHandler),
-    ('/calendar', CalendarHandler)
+    #('/calendar', CalendarHandler)
 ], debug=True)
