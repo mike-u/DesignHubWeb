@@ -91,6 +91,7 @@ class SlackHandler(webapp2.RequestHandler):
 
         slacks.text = self.request.get('text')
         slacks.user = self.request.get('user_name')
+    
 
         self.response.write("Message received from "
                             + self.request.get('user_name') + ": "
@@ -111,14 +112,39 @@ class MainHandler(webapp2.RequestHandler):
             ancestor=slack_db_key(SLACK_DB)
         ).order(-SlackDB.date)
 
-        slacks = slack_query.fetch(1)
-
+        slacks = slack_query.fetch(1).pop()
+        
+        realnames = {
+            'sivaprakasam': 'Andrew Sivaprakasam',
+            'angbeck': 'Angela Beck',
+            'brhindress': 'Brian Rhindress',
+            'cailingrey': 'Cailin Grey',
+            'davidj': 'David Jacob',
+            'ericsibored': 'Eric Zhang',
+            'gmb48': 'Grace Bova',
+            'harry_obyrne': 'Harry O\'Bryne',
+            'henry': 'Henry Russell',
+            'henryphalen': 'Henry Phalen',
+            'ian': 'Ian McIntyre',
+            'madhur': 'Madhur Malhotra',
+            'nate': 'Nate Smialek',
+            'riteshm': 'Ritesh Misra',
+            'sshaykevich': 'Sarah Shaykevich',
+            'shiv668': 'Shiv Rajesh',
+            'shweta_r': 'Shweta Ravichandar',
+            'slee': 'Stephanie Lee',
+            'zachyb': 'Zach Barnes',
+            'zpatty': 'Zach Patterson',
+            'Oh snap': 'Ritwik Gupta'
+        }
+        
         try:
             #dispevents = reformat_dates(call_list)
             template_values = {
                 #"events": dispevents[0:LANDING_EVENT_NUM],
-                "slack": slacks[0]
+                "slack": slacks
             }
+            
         except IndexError:
             # Don't ever do this in real life...
             #dispevents = reformat_dates(call_list)
@@ -132,6 +158,8 @@ class MainHandler(webapp2.RequestHandler):
                 #"events": dispevents[0:LANDING_EVENT_NUM],
                 "slack": slacks[0]
             }
+        if slacks.user in realnames:
+            slacks.user = realnames[slacks.user]
 
         template = JINJA_ENVIRON.get_template('index.html')
         self.response.write(template.render(template_values))
