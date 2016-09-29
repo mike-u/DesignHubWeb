@@ -1,0 +1,8 @@
+site uploading:
+Install Python 2.7
+  
+Download and install Google App Engine SDK for Python
+  https://cloud.google.com/sdk/docs/
+
+Clone the repository from https://github.com/mike-u/DesignHubWeb
+  Download zip - https://github.com/mike-u/DesignHubWeb/archive/master.zip
