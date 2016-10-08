@@ -11,6 +11,12 @@ Thanks for contributing! See some resources below for gettings started. No prior
 - [Skeleton documentation](http://getskeleton.com/)
 - [Font Awesome documentation](http://fortawesome.github.io/Font-Awesome/)
 
+### Editing the site
+#### Requirements:
+ - [Install Python 2.7](https://www.python.org/downloads/)
+ - [Download and install Google App Engine SDK for Python](https://cloud.google.com/sdk/docs/)
+ - [Clone the repository from https://github.com/mike-u/DesignHubWeb](https://github.com/mike-u/DesignHubWeb/archive/master.zip)
+
 #### Acknowledgements
 - [Skeleton CSS framework](http://getskeleton.com/) by Dave Gamache
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/) for being (font) awesome!
