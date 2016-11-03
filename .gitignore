@@ -41,3 +41,6 @@ Thumbs.db
 # Secrets #
 ###########
 secrets.*
+
+#VS code settings file
+.vscode
